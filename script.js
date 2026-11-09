@@ -7,6 +7,7 @@ form.addEventListener('submit', (event) => {
     message.textContent = 'Completa el monto y un correo electrónico válido.';
     return;
   }
-  message.textContent = 'Solicitud validada. La integración de pago se realizará en un entorno seguro.';
+  const selectedAmount = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 })
+    .format(Number(form.amount.value));
+  message.textContent = `Solicitud por ${selectedAmount} validada. La integración de pago se realizará en un entorno seguro.`;
 });
-
